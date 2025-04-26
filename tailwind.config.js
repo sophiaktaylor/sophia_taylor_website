@@ -6,6 +6,10 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Fira Code', 'monospace'],
+        mono: ['Fira Code', 'monospace'],
+      },
       colors: {
         primary: '#0891b2',
         secondary: '#1e40af',

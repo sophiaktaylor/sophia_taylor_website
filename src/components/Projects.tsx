@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '../context/ThemeContext';
+
 import { motion } from 'framer-motion';
 
 interface Project {
@@ -12,7 +12,7 @@ interface Project {
 }
 
 const ProjectCard = ({ project }: { project: Project }) => {
-  const { isDarkMode } = useTheme();
+
 
   return (
     <motion.div
@@ -20,23 +20,22 @@ const ProjectCard = ({ project }: { project: Project }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className={`${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'} 
-        rounded-lg shadow-lg p-6 border mb-6 transition-colors duration-300 hover:shadow-xl`}
+      className="bg-gray-900 border-gray-800 rounded-lg shadow-lg p-6 border mb-6 transition-colors duration-300 hover:shadow-xl"
     >
       <div className="flex justify-between items-start">
         <div>
-          <h3 className={`text-xl font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} transition-colors duration-300`}>
+          <h3 className="text-xl font-semibold text-white">
             {project.title}
           </h3>
-          <p className={`${isDarkMode ? 'text-dark-accent' : 'text-light-accent'} mt-1 transition-colors duration-300`}>
+          <p className="text-blue-400 mt-1">
             {project.technologies}
           </p>
         </div>
         <div className="text-right">
-          <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} transition-colors duration-300`}>
+          <p className="text-gray-400">
             {project.date}
           </p>
-          <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} transition-colors duration-300`}>
+          <p className="text-gray-400">
             {project.location}
           </p>
         </div>
@@ -47,8 +46,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           target="_blank" 
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
-          className={`${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-800'} 
-            mt-2 inline-block transition-colors duration-300`}
+          className="text-blue-400 hover:text-blue-300 mt-2 inline-block transition-colors duration-300"
         >
           View Project →
         </motion.a>
@@ -57,7 +55,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         {project.points.map((point, index) => (
           <li 
             key={index} 
-            className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}
+            className="text-gray-300"
           >
             • {point}
           </li>
@@ -68,7 +66,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 };
 
 const Projects = () => {
-  const { isDarkMode } = useTheme();
+
   const projects: Project[] = [
     {
       title: "Financial Dashboard",
@@ -111,10 +109,10 @@ const Projects = () => {
   return (
     <section 
       id="projects" 
-      className={`py-16 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'} transition-colors duration-300`}
+      className="py-16 bg-black"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-8 transition-colors duration-300`}>
+        <h2 className="text-3xl font-bold text-white mb-8">
           Projects
         </h2>
         <div className="space-y-6">

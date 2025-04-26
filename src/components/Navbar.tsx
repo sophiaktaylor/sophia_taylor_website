@@ -1,63 +1,55 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
-import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
+  const location = useLocation();
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const navLinks = [
+    { path: '/about', label: 'About' },
+    { path: '/resume', label: 'Resume' },
+    { path: '/contact', label: 'Contact' }
+  ];
 
   return (
-    <motion.nav
+    <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 100 }}
-      className={`fixed w-full ${isDarkMode ? 'bg-dark-bg text-dark-text' : 'bg-light-bg text-light-text'} shadow-md z-50 transition-colors duration-300`}
+      className="fixed w-full bg-black text-white shadow-md z-50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <motion.div
-            className="flex items-center"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className={`text-xl font-bold ${isDarkMode ? 'text-dark-accent' : 'text-light-accent'}`}>ST</span>
-          </motion.div>
-
-          <div className="hidden sm:flex items-center space-x-8">
-            {['education', 'projects', 'experience', 'skills'].map((section) => (
-              <motion.button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`${isDarkMode ? 'text-dark-text hover:text-dark-accent' : 'text-light-text hover:text-light-accent'} capitalize`}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {section}
-              </motion.button>
-            ))}
-
-            <motion.button
-              onClick={toggleTheme}
-              className={`p-2 rounded-full ${isDarkMode ? 'bg-dark-accent' : 'bg-light-accent'} transition-colors duration-300`}
-              whileHover={{ scale: 1.1 }}
+        <div className="flex justify-between h-20">
+          <Link to="/">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              aria-label="Toggle dark mode"
+              className="flex flex-col justify-center h-full py-2"
             >
-              {isDarkMode ? (
-                <SunIcon className="w-5 h-5 text-white" />
-              ) : (
-                <MoonIcon className="w-5 h-5 text-white" />
-              )}
-            </motion.button>
-          </div>
+              <span className="text-2xl font-bold text-orange-500 hover:text-orange-400 transition-colors leading-tight">Sophia</span>
+              <span className="text-2xl font-bold text-orange-500 hover:text-orange-400 transition-colors leading-tight">Taylor</span>
+            </motion.div>
+          </Link>
+
+          <nav className="hidden sm:flex items-center space-x-8">
+            {navLinks.map(({ path, label }) => (
+              <Link
+                key={path}
+                to={path}
+                className={`text-white hover:text-blue-400 transition-colors ${location.pathname === path ? 'text-blue-400' : ''}`}
+              >
+                <motion.span
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {label}
+                </motion.span>
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
-    </motion.nav>
+    </motion.header>
   );
 };
 

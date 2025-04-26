@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
+
 
 interface SkillCategory {
   title: string;
@@ -8,7 +8,7 @@ interface SkillCategory {
 }
 
 const SkillCard = ({ category, index }: { category: SkillCategory; index: number }) => {
-  const { isDarkMode } = useTheme();
+
 
   return (
     <motion.div
@@ -16,10 +16,10 @@ const SkillCard = ({ category, index }: { category: SkillCategory; index: number
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'} 
-        rounded-lg shadow-lg p-6 border transition-colors duration-300 hover:shadow-xl`}
+      className="bg-gray-900 border-gray-800 
+        rounded-lg shadow-lg p-6 border transition-colors duration-300 hover:shadow-xl"
     >
-      <h3 className={`text-xl font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4 transition-colors duration-300`}>
+      <h3 className="text-xl font-semibold text-white mb-4">
         {category.title}
       </h3>
       <div className="flex flex-wrap gap-2">
@@ -31,10 +31,7 @@ const SkillCard = ({ category, index }: { category: SkillCategory; index: number
             viewport={{ once: true }}
             transition={{ duration: 0.3, delay: index * 0.1 + skillIndex * 0.05 }}
             whileHover={{ scale: 1.05 }}
-            className={`px-3 py-1 ${isDarkMode ? 
-              'bg-gray-700 text-dark-accent hover:bg-gray-600' : 
-              'bg-blue-50 text-light-accent hover:bg-blue-100'} 
-              rounded-full text-sm transition-colors duration-300 cursor-default`}
+            className="px-3 py-1 bg-gray-800 text-blue-400 hover:bg-gray-700 rounded-full text-sm transition-colors duration-300 cursor-default"
           >
             {skill}
           </motion.span>
@@ -45,15 +42,23 @@ const SkillCard = ({ category, index }: { category: SkillCategory; index: number
 };
 
 const Skills = () => {
-  const { isDarkMode } = useTheme();
+
   const skillCategories: SkillCategory[] = [
     {
-      title: "Languages",
-      skills: ["Python", "R", "SAS", "SQL"]
+      title: "Technologies",
+      skills: ["Python", "SQL", "HTML", "R", "Tableau", "JMP"]
+    },
+    {
+      title: "Frameworks",
+      skills: ["React.js", "Vercel"]
     },
     {
       title: "Tools",
-      skills: ["Tableau", "JMP", "GitHub", "Supabase", "Visual Studio Code", "PyCharm"]
+      skills: ["Git / GitHub", "VSCode", "Figma", "Tableau", "JMP", "Supabase", "PyCharm"]
+    },
+    {
+      title: "Database & AI",
+      skills: ["PostgreSQL", "OpenAI", "Claude", "Pandas", "NumPy", "JupyterNotebook"]
     },
     {
       title: "Microsoft Office",
@@ -64,14 +69,14 @@ const Skills = () => {
   return (
     <section 
       id="skills" 
-      className={`py-16 ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'} transition-colors duration-300`}
+      className="py-16 bg-black"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className={`text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-8 transition-colors duration-300`}
+          className="text-3xl font-bold text-white mb-8"
         >
           Technical Skills
         </motion.h2>

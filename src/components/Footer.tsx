@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
+
 
 const Footer = () => {
-  const { isDarkMode } = useTheme();
+
 
   const socialLinks = [
     { name: 'Email', href: 'mailto:sophietaylor1019@gmail.com' },
@@ -13,8 +13,7 @@ const Footer = () => {
 
   return (
     <footer 
-      className={`${isDarkMode ? 'bg-gray-900' : 'bg-gray-800'} 
-        text-white py-8 transition-colors duration-300`}
+      className="bg-black text-white py-8"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
@@ -32,7 +31,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">
               Sophia Taylor
             </h3>
-            <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-300'} transition-colors duration-300`}>
+            <p className="text-gray-400">
               Statistics & Computer Science Student
             </p>
           </motion.div>
@@ -47,8 +46,7 @@ const Footer = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.1 }}
                 whileHover={{ y: -3 }}
-                className={`${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-300 hover:text-white'} 
-                  transition-all duration-300`}
+                className="text-gray-400 hover:text-white transition-all duration-300"
               >
                 {link.name}
               </motion.a>
