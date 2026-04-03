@@ -58,7 +58,7 @@ const App = () => {
               fontSize: '14px',
               maxWidth: '550px'
             }}>
-              I’m a software engineer focused on building data-driven solutions that make a meaningful impact. I’m pursuing a Bachelor of Science in Statistics with a Minor in Computer Science at Cal Poly San Luis Obispo. I’ve worked as a Data Engineering Intern at Reveleer and have built projects in market trend analysis and healthcare technology.
+              I’m an analytics-focused engineer passionate about building data-driven solutions that create real impact. I’m currently pursuing a Bachelor of Science in Statistics with a Minor in Computer Science at Cal Poly San Luis Obispo. I’ve gained experience as a Data Engineering Intern at Reveleer and have developed projects in market data analysis and healthcare technology.
             </div>
             <div style={{
               marginTop: '16px',
